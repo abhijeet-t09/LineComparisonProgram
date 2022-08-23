@@ -9,19 +9,31 @@ public class LineComparisonMain {
 
     public static void main(String[] args) {
 
-        LineComparisonMain objPQ=new LineComparisonMain();
-        LineComparisonMain objRS=new LineComparisonMain();
+        LineComparisonMain objPQ = new LineComparisonMain();
+        LineComparisonMain objRS = new LineComparisonMain();
 
-        boolean lengthCheck  = Objects.equals(objPQ.lengthPQ(), objRS.lengthRS());
+//        boolean lengthCheck  = Objects.equals(objPQ.lengthPQ(), objRS.lengthRS());
+//
+//        if (lengthCheck == true)
+//            System.out.println("The lines PQ and RS are equal");
+//        else
+//            System.out.println("PQ and RS are not equal");
 
-        if (lengthCheck == true)
-            System.out.println("The lines PQ and RS are equal");
-        else
-            System.out.println("PQ and RS are not equal");
+        int lineCheck = objRS.lengthPQ().compareTo(objPQ.lengthRS());
+
+        if (lineCheck == 0){
+            System.out.println("Lines PQ and RS are equal");
+        }
+        else if (lineCheck > 0) {
+            System.out.println("Line RS is greater than line PQ");
+        }
+        else {
+            System.out.println("line PQ is greater than line RS");
+        }
     }
 
 
-    double lengthPQ(){
+    Double lengthPQ(){
         System.out.println("Enter x1 and y1: ");
         int x1 = sc.nextInt();
         int y1 = sc.nextInt();
@@ -32,7 +44,7 @@ public class LineComparisonMain {
 
         double a = Math.pow(x2 - x1, 2);
         double b = Math.pow(y2 - y1, 2);
-        double c = (a * x1) + (b * y1);
+        Double c = (a * x1) + (b * y1);
 
         double length1 = Math.sqrt(a + b);
 
@@ -51,7 +63,7 @@ public class LineComparisonMain {
         return length1;
     }
 
-    double lengthRS(){
+    Double lengthRS(){
         System.out.println("Enter x1 and y1: ");
         int x1 = sc.nextInt();
         int y1 = sc.nextInt();
@@ -62,7 +74,7 @@ public class LineComparisonMain {
 
         double a = Math.pow(x2 - x1, 2);
         double b = Math.pow(y2 - y1, 2);
-        double c = (a * x1) + (b * y1);
+        Double c = (a * x1) + (b * y1);
 
         double length2 = Math.sqrt(a + b);
 
@@ -77,6 +89,7 @@ public class LineComparisonMain {
                             + a + "x + " + b + "y = " + c);
         }
         System.out.println("Length of Line = " + length2);
+        System.out.println();
         return length2;
     }
 }
